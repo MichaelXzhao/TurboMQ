@@ -72,7 +72,7 @@ public class MessageQueueServer
         _listener.Start();
         Console.WriteLine($"Server started listening on {_listener.LocalEndpoint}");
 
-        var monitorTask = MonitorUnconfirmedMessagesAsync(TimeSpan.FromMinutes(1));
+        var monitorTask = MonitorUnconfirmedMessagesAsync(TimeSpan.FromMinutes(0.1));
 
         while (true)
         {
