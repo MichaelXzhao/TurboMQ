@@ -2,6 +2,10 @@
 
 <img src="/images/logo.png" alt="logo" width="400" height="300">
 
+## System Design
+
+<img src="/images/systemDesign.png" alt="systemDesign" width="700" height="400">
+
 ## Sprint 1
 
 - Implemented the basic message queue model for both MQ server and client.
@@ -16,8 +20,6 @@
 - Designed a management interface using SignalR, allowing administrators to view the queue status and monitor performance.
 
 <img src="/images/PubSub.png" alt="PubSub" width="700" height="400">
-
-<img src="/images/systemDesign.png" alt="systemDesign" width="700" height="400">
 
 ## Sprint 3
 
