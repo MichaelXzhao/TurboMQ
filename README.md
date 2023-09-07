@@ -31,5 +31,13 @@
 ## Sprint 4
 
 - Realized a distributed architecture to enhance the system's availability and flexibility.
-- Implemented the election mechanism using raft algorithm.
+- Implemented the election mechanism using Raft algorithm.
 - Contemplated how to carry out failover and load balancing.
+
+<img src="/images/raft1.png" alt="Raft" width="700" height="400">
+
+<img src="/images/raft2.png" alt="Raft" width="700" height="400">
+
+<img src="/images/raft3.png" alt="Raft" width="700" height="400">
+
+<img src="/images/raft4.png" alt="Raft" width="700" height="400">
