@@ -41,5 +41,3 @@
 <img src="/images/raft3.png" alt="Raft" width="700" height="400">
 
 <img src="/images/raft4.png" alt="Raft" width="700" height="400">
-
-<img src="/images/raft5.png" alt="Raft" width="700" height="400">
