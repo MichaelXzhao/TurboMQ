@@ -7,12 +7,13 @@ public class PublishProducer
 {
     public static void Main(string[] args)
     {
+        Console.Write("Enter the topic to publish to: ");
+        string topic = Console.ReadLine();
+
         while (true)
         {
             try
             {
-                Console.Write("Enter the topic to publish to: ");
-                string topic = Console.ReadLine();
                 Console.Write($"Enter the message to publish to topic '{topic}' (or 'exit' to quit): ");
                 string message = Console.ReadLine();
 
