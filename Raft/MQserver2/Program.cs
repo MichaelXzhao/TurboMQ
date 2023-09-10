@@ -223,13 +223,8 @@ public class MessageQueueServer
             {
                 if (now - kvp.Value.Timestamp > timeout)
                 {
-                    _messageQueue.Enqueue(new QueuedMessage
-                    {
-                        MessageId = kvp.Value.Id,
-                        MessageContent = kvp.Value.Message
-                    });
                     kvp.Value.Timestamp = now;
-                    Console.WriteLine($"Resending and re-enqueued message with ID: {kvp.Value.Id} , Message:{kvp.Value.Message}");
+                    Console.WriteLine($"Resending message with ID: {kvp.Value.Id} , Message:{kvp.Value.Message}");
                 }
             }
             await Task.Delay(timeout);
@@ -269,18 +264,12 @@ public class MessageQueueServer
         }
         else if (command.StartsWith("DEQUEUE"))
         {
-            while (_messageQueue.TryDequeue(out QueuedMessage queuedMessage))
+            if (_messageQueue.TryDequeue(out QueuedMessage queuedMessage))
             {
                 messages.AppendLine($"ID: {queuedMessage.MessageId}, Message: {queuedMessage.MessageContent}");
-                dequeuedMessages.Add(queuedMessage); 
-            }
-            
-            if (messages.Length > 0)
-            {
-                var firstMessageId = dequeuedMessages[0].MessageId;  
-                File.WriteAllText(MessageStorePath, ""); 
-                response = $"{firstMessageId} OK > Messages received from server: {messages}";
-                Console.WriteLine($"Messages dequeued: {messages}");
+                RemoveMessageFromFile(queuedMessage.MessageId);
+                response = $"ID: {queuedMessage.MessageId} OK > Message received from server: {queuedMessage.MessageContent}";
+                Console.WriteLine($"Message dequeued: {queuedMessage.MessageContent}");
                 _totalMessagesProcessed++;
             }
             else
@@ -419,6 +408,13 @@ public class MessageQueueServer
             client.Close();
             //Console.WriteLine("Client connection closed");
         }
+    }
+
+    private void RemoveMessageFromFile(string messageId)
+    {
+        var lines = File.ReadAllLines(MessageStorePath).ToList();
+        lines.RemoveAll(line => line.StartsWith(messageId));
+        File.WriteAllLines(MessageStorePath, lines);
     }
 
     private bool IsSubscriber(TcpClient client)
