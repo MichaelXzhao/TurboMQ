@@ -28,7 +28,7 @@ public class MessageQueueConsumer
                 {
                     Console.WriteLine($"Received message from server: {response}");
                     
-                    string messageId = response.Split(' ')[0];
+                    string messageId = response.Split(' ')[1];
 
                     // Using a separate connection for ACK
                     using (TcpClient ackClient = new TcpClient("127.0.0.1", 8888))
