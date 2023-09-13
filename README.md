@@ -46,6 +46,6 @@
 
 - TurboMQ application in short URL system
 
-<img src="/images/management.png" alt="Management" width="700" height="400">
+<img src="/images/management.png" alt="Management" width="700" height="500">
 
-<img src="/images/database.png" alt="Database" width="700" height="400">
+<img src="/images/database.png" alt="Database" width="700" height="500">
