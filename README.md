@@ -44,7 +44,7 @@
 
 ## Sprint 5
 
-- TurboMQ application in short URL system
+- TurboMQ applied in short URL system
 
 <img src="/images/management.png" alt="Management" width="800" height="500">
 
