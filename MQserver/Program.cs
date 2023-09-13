@@ -216,7 +216,7 @@ public class MessageQueueServer
         }
         else if (command.StartsWith("MONITOR_PERFORMANCE"))
         {
-            response = $"Performance Metrics: {_subscriptions.Count} subscribers, {_messageQueue.Count} messages in queue";
+            response = $"Performance Metrics: {_subscriptions.Count} subscriptions, {_messageQueue.Count} messages in queue";
             Console.WriteLine(response);
         }
         else
